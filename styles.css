@@ -22,8 +22,8 @@ h1 em { color:var(--blue); font-weight:600; }
 .button:hover { background:#0f2f48; }
 .focus { padding:27px 6%; background:var(--blue); color:#eaf0ee; }
 .focus p { margin-bottom:6px; color:#b7cdd4; font-family:"DM Mono",monospace; font-size:.72rem; text-transform:uppercase; }
-.focus div { font-family:"Playfair Display",Georgia,serif; font-size:1.55rem; }
-.focus span { color:var(--gold); margin:0 8px; }
+.focus-list { display:flex; gap:10px; flex-wrap:wrap; margin:0; padding:0; list-style:none; }
+.focus-list li { padding:7px 11px; border:1px solid rgba(234,240,238,.42); color:#f1f4f3; font-family:"DM Mono",monospace; font-size:.75rem; }
 .section { padding:105px 6%; }
 .section-heading { max-width:790px; margin-bottom:48px; }
 h2 { font-family:"Playfair Display",Georgia,serif; font-size:clamp(2.1rem,4vw,3.6rem); line-height:1.08; letter-spacing:-.025em; }
