@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Research portfolio of Xuan Li Feng, MEng Biomedical Engineering student at Imperial College London.">
+  <title>Xuan Li Feng | Biomedical Engineering Research</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b3a57'/%3E%3Cpath d='M16 17h12l4 10 4-10h12L38 47h-12z' fill='%23e4aa42'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Xuan Li Feng home">XLF</a>
+    <nav aria-label="Primary navigation">
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#materials">Materials</a>
+      <a href="#outputs">Outputs</a>
+      <a href="#publication">Publication</a>
+      <a href="https://github.com/xuan-lifeng" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">Research Portfolio · Imperial College London</p>
+      <h1>Biomedical engineering<br><em>research portfolio.</em></h1>
+      <p class="intro">Xuan Li Feng is an MEng Biomedical Engineering student working on computational imaging, neural data modelling, and clinically oriented systems engineering.</p>
+      <div class="actions">
+        <a class="button" href="#research">View research</a>
+        <a class="text-link" href="Xuan_Li_Feng_PhD_Research_CV.pdf">Download CV <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="https://github.com/xuan-lifeng" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="focus" aria-label="Research focus">
+      <p>Current focus</p>
+      <div>Stereo NIRF imaging <span>·</span> 3D reconstruction <span>·</span> surgical navigation</div>
+    </section>
+
+    <section id="research" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Research experience</p>
+        <h2>Building reliable measurements from complex biological signals.</h2>
+      </div>
+      <article class="feature">
+        <div class="feature-number">01</div>
+        <div>
+          <p class="meta">2026 to 2027 · Imperial College London</p>
+          <h3>Anatomy Aware Surgical Robotics</h3>
+          <p class="lead">MEng thesis supervised by Dr Stuart Bowyer. I am developing a stereo near infrared fluorescence pipeline for reconstructing three dimensional vascular geometry from paired images.</p>
+          <div class="detail-grid">
+            <div><strong>Question</strong><span>How can vascular geometry be recovered robustly enough to support future anatomy aware navigation?</span></div>
+            <div><strong>Methods</strong><span>Vessel segmentation, stereo correspondence, triangulation, depth estimation, centreline extraction, synthetic ground truth, and tissue mimicking phantoms.</span></div>
+            <div><strong>Evaluation</strong><span>Depth and geometry accuracy, plus analysis of segmentation and correspondence uncertainty.</span></div>
+          </div>
+          <div class="tags"><span>Computer vision</span><span>Stereo imaging</span><span>NIRF</span><span>3D reconstruction</span></div>
+          <p class="manuscript-note"><strong>Research output:</strong> Manuscript in preparation for December 2026 conference submission.</p>
+        </div>
+      </article>
+
+      <article class="feature">
+        <div class="feature-number">02</div>
+        <div>
+          <p class="meta">2025 to 2026 · Imperial College London</p>
+          <h3>Dynamic Receptive Fields in Mouse Auditory Cortex</h3>
+          <p class="lead">Comparative modelling of neural responses to natural ultrasonic vocalisations in 46 single units, supervised by Dr Andriy S. Kozlov.</p>
+          <div class="detail-grid">
+            <div><strong>Question</strong><span>Can a stimulus dependent neural model capture response properties missed by static receptive field methods?</span></div>
+            <div><strong>Methods</strong><span>Five layer causal Conv1D network in PyTorch, automatic differentiation through the Jacobian, STA, STC, MNE, and dynamic STRF analysis.</span></div>
+            <div><strong>Result</strong><span>dSTRF achieved median Pearson correlation of 0.339 on held out firing rate prediction and identified temporal hold in 43.5% of analysed neurons.</span></div>
+          </div>
+          <div class="tags"><span>PyTorch</span><span>Conv1D</span><span>Neural data</span><span>Model evaluation</span></div>
+          <a class="report-link" href="reports/neural_receptive_fields_brief.pdf" target="_blank" rel="noreferrer">Read public technical report <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+    </section>
+
+    <section id="projects" class="section project-section">
+      <div class="section-heading">
+        <p class="eyebrow">Engineering projects</p>
+        <h2>From sensing hardware to clinically oriented software.</h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <p class="meta">2024 to 2025</p>
+          <h3>Wearable Eye Tracking AAC Device</h3>
+          <p>Contributed to a wearable communication device using gaze and head tilt input, with an emphasis on an empowering, non stigmatizing user experience.</p>
+          <p class="metric"><strong>78.2%</strong> gaze accuracy <strong>91.8%</strong> head tilt accuracy <strong>&lt;100 ms</strong> latency</p>
+          <div class="tags"><span>OpenCV</span><span>Raspberry Pi</span><span>IMU</span><span>Kotlin</span></div>
+          <a class="card-link" href="images/wearable-aac-poster-excerpt.jpg" target="_blank" rel="noreferrer">View poster excerpt <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="card">
+          <p class="meta">2025</p>
+          <h3>Remote Patient Monitoring System</h3>
+          <p>Built clinical monitoring functionality for real time vital signs, waveform visualisation, patient records, alerts, and a digital twin interface.</p>
+          <p class="metric">Java Swing client · REST API · PostgreSQL backend</p>
+          <div class="tags"><span>Java</span><span>PostgreSQL</span><span>REST</span><span>Digital health</span></div>
+          <a class="card-link" href="reports/remote_patient_monitoring_brief.pdf" target="_blank" rel="noreferrer">Read public technical report <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="card">
+          <p class="meta">2024 to 2026</p>
+          <h3>Biomedical Instrumentation Systems</h3>
+          <p>Designed and validated analogue cardiac and respiratory sensing systems, from filter derivation and circuit simulation to hardware prototyping.</p>
+          <p class="metric"><strong>3700×</strong> verified voltage gain · real time respiratory monitoring at <strong>30 breaths/min</strong></p>
+          <div class="tags"><span>SPICE</span><span>Operational amplifiers</span><span>Active filters</span><span>Signal conditioning</span></div>
+        </article>
+        <article class="card">
+          <p class="meta">Summer 2025 · Zhejiang University</p>
+          <h3>Magnetoelastic Energy Harvesting</h3>
+          <p>Research internship on GaIn doped PVDF composites, combining multiphysics simulation with molecular dynamics and density functional theory analysis.</p>
+          <p class="metric">Coauthor on a peer reviewed research article</p>
+          <div class="tags"><span>COMSOL</span><span>PVDF</span><span>MD</span><span>DFT</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="outputs" class="section outputs">
+      <div class="section-heading">
+        <p class="eyebrow">Selected outputs</p>
+        <h2>Technical work presented with evidence and context.</h2>
+      </div>
+      <div class="output-grid">
+        <a class="output-card" href="reports/neural_receptive_fields_brief.pdf" target="_blank" rel="noreferrer">
+          <span class="output-type">Technical report · PDF</span>
+          <h3>Dynamic Receptive Fields in Mouse Auditory Cortex</h3>
+          <p>Methods, model comparison, held out evaluation, and key findings from the neural modelling work.</p>
+          <span class="output-action">Open report ↗</span>
+        </a>
+        <a class="output-card" href="reports/remote_patient_monitoring_brief.pdf" target="_blank" rel="noreferrer">
+          <span class="output-type">Technical report · PDF</span>
+          <h3>Remote Patient Monitoring System</h3>
+          <p>Architecture, clinical workflow, implemented modules, and the engineering contribution.</p>
+          <span class="output-action">Open report ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="materials" class="section materials">
+      <div class="section-heading">
+        <p class="eyebrow">Selected materials</p>
+        <h2>Evidence of design and communication.</h2>
+        <p class="materials-intro">I share selected public facing materials that explain the work clearly while protecting collaborative and assessment specific content.</p>
+      </div>
+      <article class="material-card">
+        <img src="images/wearable-aac-poster-excerpt.jpg" alt="Preview of the wearable eye controlled AAC device poster">
+        <div class="material-copy">
+          <p class="meta">Poster · 2025</p>
+          <h3>Giving Voice Through Gaze</h3>
+          <p>Project poster for a wearable eye controlled augmentative and alternative communication device. It presents the user need, system architecture, evaluation, and design considerations.</p>
+          <ul>
+            <li>Wearable, hands free interaction using eye tracking and head tilt input.</li>
+            <li>System integration across embedded vision, IMU sensing, Wi Fi communication, and a Google Glass interface.</li>
+            <li>Designed to be lightweight, discreet, and practical for everyday use.</li>
+          </ul>
+          <a class="button" href="images/wearable-aac-poster-excerpt.jpg" target="_blank" rel="noreferrer">Open poster excerpt <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+    </section>
+
+    <section id="publication" class="section publication">
+      <div>
+        <p class="eyebrow">Publication</p>
+        <h2>GaIn induced polarization control in PVDF for high efficiency energy harvesting and instantaneous wireless sensing.</h2>
+        <p>Lu, J., Zhang, K., Li Feng, X., et al. Energy &amp; Environmental Materials, 2025.</p>
+      </div>
+      <a class="button secondary" href="https://doi.org/10.1002/eem2.70201" target="_blank" rel="noreferrer">View article <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="skills">
+      <p class="eyebrow">Technical toolkit</p>
+      <div class="skill-columns">
+        <div><strong>Imaging and robotics</strong><span>Stereo vision, segmentation, triangulation, NIRF, OpenCV</span></div>
+        <div><strong>Machine learning</strong><span>PyTorch, Conv1D, automatic differentiation, model evaluation</span></div>
+        <div><strong>Signals and systems</strong><span>Wiener and LMS filtering, AR models, spectral estimation, Cramér Rao bounds</span></div>
+        <div><strong>Software and hardware</strong><span>Python, MATLAB, Java, Kotlin, PostgreSQL, SPICE, COMSOL</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <p>Contact</p>
+    <a href="mailto:xl4723@ic.ac.uk">xl4723@ic.ac.uk</a>
+    <div class="footer-links">
+      <a href="https://github.com/xuan-lifeng" target="_blank" rel="noreferrer">github.com/xuan-lifeng ↗</a>
+      <span>London, United Kingdom</span>
+    </div>
+  </footer>
+</body>
+</html>
