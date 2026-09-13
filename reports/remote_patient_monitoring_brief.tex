@@ -1,0 +1,48 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+\definecolor{navy}{HTML}{17365D}
+\definecolor{gold}{HTML}{B67A1F}
+\setlist[itemize]{leftmargin=1.3em,noitemsep,topsep=3pt}
+\setlength{\parindent}{0pt}
+\begin{document}
+{\Large\bfseries\color{navy} Remote Patient Monitoring System}\par\vspace{4pt}
+{\small Xuan Li Feng \quad | \quad Imperial College London \quad | \quad 2025}\par\vspace{12pt}
+\hrule\vspace{12pt}
+\textbf{Technical project brief}\par
+\vspace{3pt}
+A desktop application for reviewing real-time physiological signals, patient records, and alerts through a structured, extensible clinical software architecture.
+\section*{Problem}
+Clinical monitoring systems need a coherent view of live vital signs, historical information, and abnormal events while retaining traceability across patient records.
+\section*{System architecture}
+\[
+\mbox{Java Swing client} \;\longleftrightarrow\; \mbox{REST API} \;\longleftrightarrow\; \mbox{PostgreSQL database}
+\]
+\section*{Implemented functionality}
+\begin{itemize}
+\item Multi-patient monitoring interface with live ECG and respiration waveform visualisation.
+\item Patient onboarding, persistent clinical records, and threshold-based visual and audio alerts.
+\item Event acknowledgement and stored alert causes to support clinical review and traceability.
+\item Digital-twin visualisation module as an extensible representation of physiological state.
+\end{itemize}
+\section*{System map}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\linewidth}{>{\bfseries\color{navy}}p{0.29\linewidth}X}
+Presentation layer & Java Swing desktop interface for multi-patient views and live waveform display \\
+Application layer & REST services coordinating clinician, patient, vital-sign, and alert workflows \\
+Data layer & PostgreSQL persistence for structured patient data, historical records, and alert events \\
+Quality controls & JUnit test suite and Gradle build workflow \\
+\end{tabularx}
+\section*{Project outcome}
+The completed prototype delivered a coherent clinical workflow from patient onboarding to live monitoring, alert acknowledgement, and review of stored health information. It demonstrated how a modular architecture can support a future monitoring platform without coupling the interface to one hardware device.
+\section*{Technical tools}
+Java \quad Swing \quad REST APIs \quad PostgreSQL \quad Gradle \quad JUnit \quad Digital health software
+\vfill
+{\small\color{navy}\rule{0.12\linewidth}{0.5pt}\quad Public project summary}
+\end{document}
