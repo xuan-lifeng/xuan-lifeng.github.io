@@ -100,7 +100,7 @@ Under matched settings, the dynamic model outperformed static alternatives. The 
 \end{summarybox}
 \vspace{10pt}
 \begin{center}
-\includegraphics[height=.60\textheight]{assets/neural_example_data.pdf}
+\includegraphics[height=.60\textheight]{assets/neural_example_data.jpg}
 \end{center}
 \vspace{2pt}
 {\footnotesize\textbf{Figure 1. Example neural response to a natural acoustic stimulus.} (A) Spike raster showing the responses of a single auditory cortical neuron across repeated presentations of a natural ultrasonic vocalisation stimulus. Each dot represents an individual spike and rows correspond to repeated trials. (B) Trial-averaged peri-stimulus time histogram (PSTH), representing the mean firing rate across trials. (C) Spectrogram of the stimulus segment, showing the time-frequency structure of the acoustic input driving the neural response.}\par
@@ -114,7 +114,7 @@ Under matched settings, the dynamic model outperformed static alternatives. The 
 {\small Held-out prediction of auditory-cortical responses}\par
 \vspace{10pt}
 \begin{center}
-\includegraphics[width=\linewidth]{assets/neural_model_performance.pdf}
+\includegraphics[width=\linewidth]{assets/neural_model_performance.jpg}
 \end{center}
 \vspace{3pt}
 {\footnotesize\textbf{Figure 2. Comparison of neural encoding models for predicting auditory cortical responses.} (A--E) Example held-out predictions for a single neuron. The observed PSTH (A) is compared with predictions from spike-triggered average (STA) (B), spike-triggered covariance (STC) (C), maximum noise entropy (MNE) (D), and dynamic spectrotemporal receptive field (dSTRF) (E) models. Prediction accuracy was quantified using Pearson correlation between predicted and observed firing rates. (F) Population comparison across 46 neurons. Median performance was $r=0.255$ for STA, $r=0.275$ for STC, $r=0.290$ for matched-parameter MNE, and $r=0.339$ for dSTRF; boxes indicate the interquartile range and horizontal lines the median. (G--I) Pairwise comparisons with dSTRF: dSTRF outperformed STA in 34/46 neurons (73.9\%), STC in 31/46 (67.4\%), and matched MNE in 35/46 (76.1\%). Each point represents one neuron; the dashed diagonal indicates equal predictive performance.}\par
@@ -128,8 +128,22 @@ Under matched settings, the dynamic model outperformed static alternatives. The 
 {\small Representative auditory cortical neuron}\par
 \vspace{10pt}
 \begin{center}
-\includegraphics[width=\linewidth]{assets/neural_receptive_field_structure.pdf}
+\includegraphics[width=\linewidth]{assets/neural_receptive_field_structure.jpg}
 \end{center}
 \vspace{3pt}
 {\footnotesize\textbf{Figure 3. Receptive-field structure of a representative auditory cortical neuron.} (A) Spike-triggered average (STA) spectrotemporal receptive field, showing the dominant linear stimulus features associated with increased firing probability. Warm colours indicate excitatory stimulus components and cool colours suppressive components across frequency and temporal lag. (B--C) Significant spike-triggered covariance (STC) features, revealing higher-order stimulus dimensions not captured by the STA. (D) Maximum noise entropy (MNE) feature set, showing dominant quadratic stimulus features learned by the model. (E) STC eigenspectrum; dashed lines are shuffle-derived significance thresholds. (F) Sorted STC eigenvalue magnitudes, highlighting the relative strength of excitatory and suppressive nonlinear components: positive eigenvalues correspond to excitatory dimensions and negative eigenvalues to suppressive dimensions.}
+\newpage
+\begin{tikzpicture}[remember picture,overlay]
+\fill[navy] (current page.north west) rectangle ([yshift=-7mm]current page.north east);
+\end{tikzpicture}
+\vspace*{4mm}
+{\LARGE\bfseries\color{navy} Appendix: Dynamic Nonlinearities}\par
+\vspace{3pt}
+{\small Gain change, temporal hold, and shape change}\par
+\vspace{10pt}
+\begin{center}
+\includegraphics[width=\linewidth]{assets/neural_nonlinearities.jpg}
+\end{center}
+\vspace{4pt}
+{\footnotesize\textbf{Figure 4. Dynamic receptive-field nonlinearities across example sites.} (A) Gain change: the same spectrotemporal pattern is applied with a time-varying magnitude across three stimulus times. (B) Temporal hold: the receptive-field pattern remains similar while its temporal lag shifts in consecutive time frames. (C) Shape change: distinct spectrotemporal patterns are applied at different times. (D) Matrix of dynamic spectrotemporal receptive fields (dSTRFs) across time, showing the collection of stimulus-dependent linear functions learned by the neural network. These three effects describe complementary ways in which a dynamic receptive field can differ from a static receptive-field model.}
 \end{document}
