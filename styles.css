@@ -78,7 +78,7 @@ h3 { margin-bottom:11px; font-family:"Playfair Display",Georgia,serif; font-size
 .skill-columns div { padding-top:17px; border-top:1px solid var(--line); }
 footer { max-width:1200px; margin:auto; padding:55px 10%; background:var(--ink); color:white; }
 footer p { margin-bottom:8px; color:#b7cdd4; font-family:"DM Mono",monospace; font-size:.75rem; letter-spacing:.06em; text-transform:uppercase; }
-footer > a { display:block; margin-bottom:24px; color:white; font-family:"Playfair Display",Georgia,serif; font-size:clamp(1.8rem,4vw,3rem); text-decoration:none; }
+footer > a { display:block; margin-bottom:24px; color:white; font-family:"DM Sans",Arial,sans-serif; font-size:clamp(1.65rem,3.2vw,2.45rem); font-weight:500; letter-spacing:-.025em; text-decoration:none; }
 .footer-links { display:flex; gap:22px; flex-wrap:wrap; }
 .footer-links a,.footer-links span { color:#b7cdd4; font-size:.9rem; text-decoration:none; }
 .footer-links a:hover { color:white; }
