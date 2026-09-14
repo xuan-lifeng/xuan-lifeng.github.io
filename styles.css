@@ -98,3 +98,9 @@ footer p { margin-bottom:8px; color:#b7cdd4; font-family:"DM Mono",monospace; fo
 .neural-videos { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:23px; }
 .video-figure { padding:10px; background:#f7f8f7; border:1px solid #c5cdc9; }
 .video-figure video { display:block; width:100%; aspect-ratio:16/9; background:#101820; }
+
+.aac-poster { object-fit:contain !important; max-height:none !important; background:#fff; }
+.neural-videos { grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; }
+.video-figure { min-width:0; }
+.video-figure video { object-fit:contain; }
+@media (max-width:720px) { .neural-videos { grid-template-columns:1fr; } }
