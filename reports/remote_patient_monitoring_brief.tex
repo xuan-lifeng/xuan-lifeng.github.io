@@ -1,48 +1,83 @@
 \documentclass[10pt,a4paper]{article}
-\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage[a4paper,margin=19mm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{palatino}
 \usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{enumitem}
-\usepackage{tabularx}
-\usepackage{array}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usetikzlibrary{positioning,arrows.meta}
 \definecolor{navy}{HTML}{17365D}
-\definecolor{gold}{HTML}{B67A1F}
-\setlist[itemize]{leftmargin=1.3em,noitemsep,topsep=3pt}
+\definecolor{bluegrey}{HTML}{EAF0F5}
+\definecolor{ink}{HTML}{202A34}
+\hypersetup{colorlinks=true,urlcolor=navy}
 \setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.2em,noitemsep,topsep=2pt}
+\newtcolorbox{summarybox}{colback=bluegrey,colframe=navy,boxrule=0pt,leftrule=2.4pt,arc=0pt,left=10pt,right=10pt,top=8pt,bottom=8pt}
+\newtcolorbox{metricbox}[1]{colback=bluegrey,colframe=bluegrey,boxrule=0pt,arc=0pt,left=9pt,right=9pt,top=7pt,bottom=7pt,title={\color{navy}\footnotesize\bfseries #1},fonttitle=\bfseries}
 \begin{document}
-{\Large\bfseries\color{navy} Remote Patient Monitoring System}\par\vspace{4pt}
-{\small Xuan Li Feng \quad | \quad Imperial College London \quad | \quad 2025}\par\vspace{12pt}
-\hrule\vspace{12pt}
-\textbf{Technical project brief}\par
+\color{ink}
+\begin{tikzpicture}[remember picture,overlay]
+\fill[navy] (current page.north west) rectangle ([yshift=-7mm]current page.north east);
+\end{tikzpicture}
+\vspace*{4mm}
+{\LARGE\bfseries\color{navy} Remote Patient Monitoring System}\par
 \vspace{3pt}
-A desktop application for reviewing real-time physiological signals, patient records, and alerts through a structured, extensible clinical software architecture.
-\section*{Problem}
-Clinical monitoring systems need a coherent view of live vital signs, historical information, and abnormal events while retaining traceability across patient records.
-\section*{System architecture}
-\[
-\mbox{Java Swing client} \;\longleftrightarrow\; \mbox{REST API} \;\longleftrightarrow\; \mbox{PostgreSQL database}
-\]
-\section*{Implemented functionality}
+{\small Xuan Li Feng \quad\textbar\quad Imperial College London \quad\textbar\quad 2025}\par
+\vspace{10pt}
+\begin{summarybox}
+\textbf{Public technical summary.} A desktop application for reviewing live physiological signals, patient records, and alerts through a structured, extensible clinical software architecture.
+\end{summarybox}
+\vspace{10pt}
+\textbf{Engineering objective}\par\vspace{2pt}
+How can a desktop system give clinicians a coherent view of multiple patients, live vital signs, abnormal events, and stored clinical information?\par
+\vspace{11pt}
+\textbf{System workflow}\par\vspace{5pt}
+\begin{center}
+\begin{tikzpicture}[node distance=4mm and 4mm, every node/.style={align=center,font=\footnotesize}, flow/.style={-Latex,draw=navy,line width=.7pt}]
+\node[fill=bluegrey,text width=.19\linewidth,minimum height=17mm] (a) {\textbf{Clinical input}\\Patient records and signals};
+\node[fill=bluegrey,text width=.19\linewidth,minimum height=17mm,right=of a] (b) {\textbf{Java Swing}\\Live monitoring interface};
+\node[fill=bluegrey,text width=.19\linewidth,minimum height=17mm,right=of b] (c) {\textbf{REST API}\\Workflow and alerts};
+\node[fill=bluegrey,text width=.19\linewidth,minimum height=17mm,right=of c] (d) {\textbf{PostgreSQL}\\Persistent records};
+\draw[flow] (a) -- (b); \draw[flow] (b) -- (c); \draw[flow] (c) -- (d);
+\end{tikzpicture}
+\end{center}
+\vspace{7pt}
+\begin{minipage}[t]{0.485\linewidth}
+\textbf{Implemented functionality}\par\vspace{3pt}
 \begin{itemize}
-\item Multi-patient monitoring interface with live ECG and respiration waveform visualisation.
-\item Patient onboarding, persistent clinical records, and threshold-based visual and audio alerts.
-\item Event acknowledgement and stored alert causes to support clinical review and traceability.
-\item Digital-twin visualisation module as an extensible representation of physiological state.
+\item Multi-patient interface with live ECG and respiration waveform visualisation.
+\item Patient onboarding, persistent clinical records, and historical review.
+\item Visual and audio alerts with event acknowledgement and stored alert causes.
 \end{itemize}
-\section*{System map}
-\renewcommand{\arraystretch}{1.5}
-\begin{tabularx}{\linewidth}{>{\bfseries\color{navy}}p{0.29\linewidth}X}
-Presentation layer & Java Swing desktop interface for multi-patient views and live waveform display \\
-Application layer & REST services coordinating clinician, patient, vital-sign, and alert workflows \\
-Data layer & PostgreSQL persistence for structured patient data, historical records, and alert events \\
-Quality controls & JUnit test suite and Gradle build workflow \\
-\end{tabularx}
-\section*{Project outcome}
-The completed prototype delivered a coherent clinical workflow from patient onboarding to live monitoring, alert acknowledgement, and review of stored health information. It demonstrated how a modular architecture can support a future monitoring platform without coupling the interface to one hardware device.
-\section*{Technical tools}
-Java \quad Swing \quad REST APIs \quad PostgreSQL \quad Gradle \quad JUnit \quad Digital health software
+\end{minipage}\hfill
+\begin{minipage}[t]{0.485\linewidth}
+\textbf{System design}\par\vspace{3pt}
+\begin{itemize}
+\item Java Swing client connected to REST services and a PostgreSQL backend.
+\item Digital Twin visualisation module designed as an extensible interface.
+\item JUnit test suite and Gradle build workflow supporting quality control.
+\end{itemize}
+\end{minipage}
+\vspace{10pt}
+\textbf{Evidence at a glance}\par\vspace{5pt}
+\begin{minipage}[t]{0.485\linewidth}
+\begin{metricbox}{CLINICAL WORKFLOW}
+{\Large\bfseries\color{navy} End to end}\par\vspace{2pt}
+From patient onboarding to monitoring, alert acknowledgement, and record review.
+\end{metricbox}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.485\linewidth}
+\begin{metricbox}{SYSTEM ARCHITECTURE}
+{\Large\bfseries\color{navy} 3 layers}\par\vspace{2pt}
+Presentation, application, and persistent data layers with clear responsibilities.
+\end{metricbox}
+\end{minipage}
+\vspace{10pt}
+\textbf{Project outcome}\par\vspace{3pt}
+The completed prototype demonstrated a coherent clinical workflow and a modular software foundation for future monitoring and simulation features, without coupling the interface to one hardware device.
 \vfill
-{\small\color{navy}\rule{0.12\linewidth}{0.5pt}\quad Public project summary}
+\color{navy}\rule{\linewidth}{0.35pt}\par\vspace{4pt}
+{\footnotesize\textbf{Technical tools}\quad Java \enspace Swing \enspace REST APIs \enspace PostgreSQL \enspace Gradle \enspace JUnit \enspace digital health software}
 \end{document}
