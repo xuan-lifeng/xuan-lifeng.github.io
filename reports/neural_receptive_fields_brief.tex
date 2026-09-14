@@ -1,61 +1,111 @@
 \documentclass[10pt,a4paper]{article}
-\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage[a4paper,margin=19mm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{palatino}
 \usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{enumitem}
-\usepackage{tabularx}
-\usepackage{array}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usetikzlibrary{positioning,arrows.meta}
 \definecolor{navy}{HTML}{17365D}
-\setlist[itemize]{leftmargin=1.3em,noitemsep,topsep=3pt}
+\definecolor{bluegrey}{HTML}{EAF0F5}
+\definecolor{ink}{HTML}{202A34}
+\hypersetup{colorlinks=true,urlcolor=navy}
 \setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.2em,noitemsep,topsep=2pt}
+\newtcolorbox{summarybox}{colback=bluegrey,colframe=navy,boxrule=0pt,leftrule=2.4pt,arc=0pt,left=10pt,right=10pt,top=8pt,bottom=8pt}
+\newtcolorbox{metricbox}[1]{colback=bluegrey,colframe=bluegrey,boxrule=0pt,arc=0pt,left=9pt,right=9pt,top=7pt,bottom=7pt,title={\color{navy}\footnotesize\bfseries #1},fonttitle=\bfseries}
 \begin{document}
-{\Large\bfseries\color{navy} Dynamic Receptive Fields in Mouse Auditory Cortex}\par\vspace{4pt}
-{\small Xuan Li Feng \quad | \quad Imperial College London \quad | \quad 2025--2026}\par\vspace{12pt}
-\hrule\vspace{12pt}
-\textbf{Technical project brief}\par
+\color{ink}
+\begin{tikzpicture}[remember picture,overlay]
+\fill[navy] (current page.north west) rectangle ([yshift=-7mm]current page.north east);
+\end{tikzpicture}
+\vspace*{4mm}
+{\LARGE\bfseries\color{navy} Dynamic Receptive Fields\\[-1pt] in Mouse Auditory Cortex}\par
 \vspace{3pt}
-This project evaluated whether a dynamic receptive-field model could predict auditory-cortical activity from natural ultrasonic vocalisations and recover response properties missed by static methods.
-\section*{Research question}
-Can a stimulus-dependent receptive field capture nonlinear neural-response behaviour not represented by conventional static receptive-field methods?
-\section*{Analysis architecture}
-\[
-\mbox{Natural sound spectrograms} \;\longleftrightarrow\; \mbox{Causal Conv1D model} \;\longleftrightarrow\; \mbox{Dynamic STRF extraction}
-\]
-\section*{Implemented analysis}
+{\small Xuan Li Feng \quad\textbar\quad Imperial College London \quad\textbar\quad 2025--2026}\par
+\vspace{10pt}
+\begin{summarybox}
+\textbf{Public technical summary.} This project tested whether a deep neural model could predict auditory-cortical activity from natural ultrasonic vocalisations and expose response structure that static receptive-field methods miss.
+\end{summarybox}
+\vspace{10pt}
+\textbf{Research question}\par
+\vspace{2pt}
+Can a stimulus-dependent receptive field capture nonlinear neural-response behaviour that is not represented by static methods?
+\vspace{11pt}
+
+\textbf{Analysis workflow}\par\vspace{5pt}
+\begin{center}
+\begin{tikzpicture}[node distance=4mm and 4mm, every node/.style={align=center,font=\footnotesize}, flow/.style={-Latex,draw=navy,line width=.7pt}]
+\node[fill=bluegrey,text width=.19\linewidth,minimum height=17mm] (a) {\textbf{Natural sound}\\Spectrogram input};
+\node[fill=bluegrey,text width=.19\linewidth,minimum height=17mm,right=of a] (b) {\textbf{Causal Conv1D}\\Firing-rate prediction};
+\node[fill=bluegrey,text width=.19\linewidth,minimum height=17mm,right=of b] (c) {\textbf{Jacobian}\\Dynamic STRF extraction};
+\node[fill=bluegrey,text width=.19\linewidth,minimum height=17mm,right=of c] (d) {\textbf{Evaluation}\\Matched comparisons};
+\draw[flow] (a) -- (b); \draw[flow] (b) -- (c); \draw[flow] (c) -- (d);
+\end{tikzpicture}
+\end{center}
+\vspace{7pt}
+
+\begin{minipage}[t]{0.485\linewidth}
+\textbf{Method}\par\vspace{3pt}
 \begin{itemize}
 \item Trained a five-layer causal Conv1D model in PyTorch on sound spectrograms from 46 mouse auditory-cortex units.
 \item Used Jacobian-based automatic differentiation to derive dynamic spectrotemporal receptive fields from the trained network.
-\item Compared the model with spike-triggered average, spike-triggered covariance, and maximum-noise-entropy baselines.
-\item Evaluated held-out firing-rate prediction with Pearson correlation, matched comparison protocols, and shuffle tests.
+\item Benchmarked against spike-triggered average, spike-triggered covariance, and maximum-noise-entropy models.
 \end{itemize}
-\section*{Analysis map}
-\renewcommand{\arraystretch}{1.5}
-\begin{tabularx}{\linewidth}{>{\bfseries\color{navy}}p{0.29\linewidth}X}
-Input & Natural ultrasonic vocalisations represented as spectrograms \\
-Prediction model & Causal Conv1D network producing firing-rate predictions \\
-Response analysis & Jacobian-based extraction of dynamic receptive-field structure \\
-Evaluation & Held-out Pearson correlation, matched comparisons, shuffle tests, and temporal-hold analysis \\
-\end{tabularx}
-\section*{Project outcome}
-The dynamic STRF achieved a median held-out Pearson correlation of \textbf{0.339} and revealed temporal hold in \textbf{43.5\%} of analysed neurons. Under matched settings, the dynamic model outperformed the static alternatives and supported context-dependent analysis of neural responses to naturalistic sound.
-\section*{Technical tools}
-PyTorch \quad Python \quad Conv1D \quad Automatic differentiation \quad Spectrotemporal analysis \quad Statistical model comparison
-\vfill
-{\small\color{navy}\rule{0.12\linewidth}{0.5pt}\quad Public project summary}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.485\linewidth}
+\textbf{Evaluation}\par\vspace{3pt}
+\begin{itemize}
+\item Measured held-out prediction quality with Pearson correlation and noise ceilings.
+\item Used shuffle tests and matched comparison protocols to assess whether performance differences were robust.
+\item Examined temporal hold: persistence of a receptive-field pattern through time.
+\end{itemize}
+\end{minipage}
+\vspace{10pt}
 
+\textbf{Evidence at a glance}\par\vspace{5pt}
+\begin{minipage}[t]{0.485\linewidth}
+\begin{metricbox}{PREDICTIVE PERFORMANCE}
+{\Large\bfseries\color{navy} $r = 0.339$}\par\vspace{2pt}
+Median held-out Pearson correlation for the dynamic STRF model.
+\end{metricbox}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.485\linewidth}
+\begin{metricbox}{TEMPORAL HOLD}
+{\Large\bfseries\color{navy} 43.5\%}\par\vspace{2pt}
+of analysed neurons showed a receptive-field pattern persisting over time.
+\end{metricbox}
+\end{minipage}
+\vspace{10pt}
+
+\textbf{Interpretation}\par\vspace{3pt}
+Under matched settings, the dynamic model outperformed static alternatives. The analysis also showed that temporal resolution and evaluation choices can materially alter conclusions. The resulting workflow supports context-dependent receptive-field analysis for naturalistic neural stimulation.
+\vfill
+\color{navy}\rule{\linewidth}{0.35pt}\par\vspace{4pt}
+{\footnotesize\textbf{Technical tools}\quad PyTorch \enspace Python \enspace Conv1D \enspace automatic differentiation \enspace spectrotemporal analysis \enspace statistical model comparison}
 \newpage
-{\Large\bfseries\color{navy} Selected results}\par\vspace{4pt}
-{\small Dynamic receptive-field modelling in mouse auditory cortex}\par\vspace{10pt}
-\hrule\vspace{12pt}
-\textbf{Prediction example}\par\vspace{5pt}
+\begin{tikzpicture}[remember picture,overlay]
+\fill[navy] (current page.north west) rectangle ([yshift=-7mm]current page.north east);
+\end{tikzpicture}
+\vspace*{4mm}
+{\LARGE\bfseries\color{navy} Selected Results}\par
+\vspace{3pt}
+{\small Dynamic receptive-field modelling in mouse auditory cortex}\par
+\vspace{10pt}
+\begin{summarybox}
+\textbf{Interpretation.} The dynamic STRF achieved the strongest median held-out prediction accuracy across the 46-unit population, while the trace below shows how the models differ on a representative response segment.
+\end{summarybox}
+\vspace{10pt}
+\textbf{Predicted versus observed responses}\par\vspace{5pt}
 \includegraphics[width=\linewidth]{assets/neural_prediction_comparison.png}\par
-\vspace{4pt}
-{\small A representative segment comparing observed neural activity with predictions from STA, STC, MNE, and dynamic STRF methods.}\par\vspace{12pt}
-\textbf{Performance across 46 neurons}\par\vspace{5pt}
+\vspace{3pt}
+{\footnotesize A representative segment comparing observed neural activity with predictions from STA, STC, MNE, and dSTRF.}\par
+\vspace{9pt}
+\textbf{Prediction accuracy across 46 neurons}\par\vspace{5pt}
 \includegraphics[width=\linewidth]{assets/neural_method_comparison.png}\par
-\vspace{4pt}
-{\small The dynamic STRF model achieved the highest median prediction accuracy across the evaluated population.}
+\vspace{3pt}
+{\footnotesize Boxplots show the distribution of Pearson correlations. The dSTRF model achieved the highest median prediction accuracy.}
 \end{document}
