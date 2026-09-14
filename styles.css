@@ -91,3 +91,10 @@ footer p { margin-bottom:8px; color:#b7cdd4; font-family:"DM Mono",monospace; fo
 .footer-links a,.footer-links span { color:#b7cdd4; font-size:.9rem; text-decoration:none; }
 .footer-links a:hover { color:white; }
 @media (max-width:720px) { .nav,main { padding-left:18px; padding-right:18px; } .nav { padding-top:18px; padding-bottom:18px; } nav { gap:13px; } nav a { font-size:.78rem; } .hero { padding:70px 9% 60px; min-height:520px; } .hero:after { opacity:.5; } .section,.skills { padding:70px 5%; } .feature { grid-template-columns:1fr; gap:8px; } .detail-grid,.cards,.skill-columns,.material-card,.output-grid { grid-template-columns:1fr; } .material-copy { padding:8px 5px 20px; } .publication { display:block; } .secondary { margin-top:12px; } }
+
+.neural-figure,.video-figure { margin:0; }
+.neural-figure figcaption,.video-figure figcaption { margin-top:9px; color:#40515e; font-size:.84rem; line-height:1.45; }
+.figure-citation { margin:5px 0 0; color:#63717b; font-size:.76rem; line-height:1.4; }
+.neural-videos { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:23px; }
+.video-figure { padding:10px; background:#f7f8f7; border:1px solid #c5cdc9; }
+.video-figure video { display:block; width:100%; aspect-ratio:16/9; background:#101820; }
