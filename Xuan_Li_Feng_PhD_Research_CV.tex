@@ -1,0 +1,73 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1.25cm,top=1.0cm,bottom=0.85cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{xcolor,hyperref,enumitem,tabularx}
+\pagestyle{empty}
+\definecolor{navy}{RGB}{26,62,102}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue,pdfborder={0 0 0}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=14pt,itemsep=0pt,topsep=2pt,parsep=0pt}
+\newcommand{\sectiontitle}[1]{\par\vspace{3pt}\textcolor{navy}{\large\textbf{#1}}\par\vspace{-3pt}\textcolor{navy}{\rule{\linewidth}{0.45pt}}\vspace{0pt}}
+\newcommand{\entry}[2]{\textbf{#1}\hfill{\color{black!65}#2}\par}
+\begin{document}\fontsize{9.5}{10.5}\selectfont
+\begin{center}
+{\fontsize{19}{20}\selectfont\textcolor{navy}{\textbf{Xuan Li Feng}}}\par\vspace{2pt}
+\href{mailto:xl4723@ic.ac.uk}{xl4723@ic.ac.uk}\quad | \quad London, United Kingdom\quad | \quad MEng Biomedical Engineering, Imperial College London\par
+\vspace{1pt}\href{https://xuan-lifeng.github.io}{Research portfolio: xuan-lifeng.github.io}
+\end{center}\vspace{-5pt}
+\sectiontitle{EDUCATION}
+\entry{MEng Biomedical Engineering}{2023--2027 (expected)}
+\textit{Imperial College London}
+\begin{itemize}
+\item Expected graduation: June 2027.
+\item Relevant coursework: Image Processing; Digital Biosignal Processing; Statistical Signal Processing \& Inference; Biomedical Instrumentation.
+\end{itemize}
+\sectiontitle{RESEARCH EXPERIENCE}
+\entry{MEng Thesis: Anatomy-Aware Surgical Robotics}{2026--2027}
+\textit{Imperial College London \quad | \quad Supervised by Dr Stuart Bowyer}
+\begin{itemize}
+\item Developing a stereoscopic near-infrared fluorescence (NIRF) pipeline to reconstruct 3D vascular geometry from paired images for anatomy-aware surgical assistance.
+\item Current work focuses on vessel segmentation, stereo correspondence, triangulation, depth estimation, centreline extraction, and validation against synthetic ground truth and tissue-mimicking phantoms.
+\item Evaluating reconstruction reliability using depth and geometry error metrics; investigating failure modes from segmentation and correspondence uncertainty.
+\end{itemize}
+\entry{Deep Neural Receptive Fields in Mouse Auditory Cortex}{2025--2026}
+\textit{Imperial College London \quad | \quad Supervised by Dr A. S. Kozlov}
+\begin{itemize}
+\item Designed and trained a five-layer causal Conv1D model to predict auditory-cortical spiking responses from naturalistic ultrasonic vocalisations in mice.
+\item Used Jacobian-based automatic differentiation to derive dynamic spectrotemporal receptive fields and compare neural-network behaviour with STA, STC, MNE, and dSTRF analyses.
+\end{itemize}
+\entry{Research Internship: Magnetoelastic Energy Harvesting}{Jun--Aug 2025}
+\textit{Zhejiang University \quad | \quad Principal Investigator: Professor Jikui Luo}
+\begin{itemize}
+\item Conducted full-time research on GaIn-doped PVDF composites, using COMSOL multiphysics simulation and molecular-dynamics and density-functional-theory analysis to support experimental interpretation.
+\end{itemize}
+\sectiontitle{PROJECTS}
+\entry{Wearable Eye-Tracking AAC Device}{2024--2025}
+\textit{Imperial College London}
+\begin{itemize}
+\item Developed gaze and head-tilt input for a wearable AAC device using OpenCV, Raspberry Pi Zero 2 W, IMU sensing, and Google Glass; achieved 78.2\% gaze-selection accuracy and 91.8\% head-tilt accuracy with latency below 100 ms.
+\end{itemize}
+\entry{Remote Patient Monitoring System}{2025}
+\textit{Imperial College London}
+\begin{itemize}
+\item Developed components of a Java Swing clinical monitoring system with REST API and PostgreSQL backend, including real-time waveform display and digital-twin visualisation.
+\end{itemize}
+\entry{Biomedical Instrumentation Systems}{2024--2026}
+\textit{Imperial College London}
+\begin{itemize}
+\item Designed and validated multistage analogue cardiac and respiratory sensing systems using LM324 operational amplifiers, active filters, SPICE, and hardware prototyping; verified 3700 voltage gain and real-time monitoring at 30 breaths per minute.
+\end{itemize}
+\sectiontitle{PUBLICATION}
+Lu, J., Zhang, K., \ldots, \textbf{Li Feng, X.}, \ldots et al. (2025). \textit{GaIn Induced Polarization Control in PVDF for High-Efficiency Energy Harvesting and Instantaneous Wireless Sensing.} Energy \& Environmental Materials. \href{https://doi.org/10.1002/eem2.70201}{doi:10.1002/eem2.70201}
+\sectiontitle{TECHNICAL SKILLS}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{3.05cm}X@{}}
+Medical Imaging \& Vision & Stereo vision, 3D triangulation, image segmentation, centreline extraction, reconstruction validation, NIRF imaging concepts, OpenCV\\
+Machine Learning \& Neural Data & PyTorch, Conv1D, automatic differentiation/Jacobians, cross-validation, neural response prediction, model evaluation\\
+Signal Processing \& Statistics & Wiener and LMS filtering, AR modelling, spectral estimation, Cram\'er--Rao bounds, time-series analysis, hypothesis testing, Pearson correlation\\
+Programming \& Research Tools & Python, MATLAB, Java, JavaScript, Kotlin, Git/GitHub, Jupyter, PostgreSQL\\
+Hardware \& Systems & Embedded vision, Raspberry Pi, IMU sensing, PCB design, analogue filtering and amplification, SPICE, COMSOL Multiphysics
+\end{tabularx}
+\end{document}
