@@ -56,7 +56,7 @@ h3 { margin-bottom:11px; font-family:"Playfair Display",Georgia,serif; font-size
 .material-copy p { color:#52616e; }
 .material-copy ul { margin:22px 0 28px; padding-left:20px; color:#43515e; }
 .material-copy li { margin:8px 0; }
-.neural-material { margin-top:24px; align-items:start; }
+.neural-material { margin-top:24px; align-items:start; }\n.neural-material .material-copy { padding-top:0; }
 .neural-figures { display:grid; gap:14px; }
 .neural-figures img { width:100%; border:1px solid #c5cdc9; background:white; }
 .neural-figures img:first-child { box-shadow:10px 10px 0 rgba(29,70,102,.12); }
@@ -65,7 +65,7 @@ h3 { margin-bottom:11px; font-family:"Playfair Display",Georgia,serif; font-size
 .aac-poster { object-fit:contain !important; max-height:none !important; background:#fff; }
 .neural-videos { display:grid; grid-template-columns:1fr; gap:18px; }
 .video-figure { min-width:0; margin:0; }
-.video-figure video { display:block; width:100%; aspect-ratio:16/9; object-fit:contain; background:#0f1720; }
+.video-figure video { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:transparent; }
 .video-figure figcaption { margin-top:7px; color:#52616e; font-size:.75rem; line-height:1.4; }
 .project-links { display:flex; align-items:center; flex-wrap:wrap; gap:14px 20px; margin-top:25px; }
 .project-links .text-link { font-size:.84rem; font-weight:600; }
