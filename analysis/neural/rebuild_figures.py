@@ -16,7 +16,7 @@ from PIL import Image
 ROOT=Path(__file__).resolve().parents[2]
 OUT=ROOT/'assets';DATA=OUT/'data'
 INK='#172b42';MUTED='#61768b';BLUE='#2877b5';TEAL='#168a83';GRID='#e8edf3';ORANGE='#c16f3a'
-plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'text.color':INK,'axes.labelcolor':MUTED,'axes.edgecolor':'#cad5df','xtick.color':MUTED,'ytick.color':MUTED,'axes.spines.top':False,'axes.spines.right':False,'svg.fonttype':'none','savefig.facecolor':'white','axes.titlesize':12,'axes.titleweight':'medium'})
+plt.rcParams.update({'font.family':'sans-serif','font.sans-serif':['DejaVu Sans','Arial','Helvetica','sans-serif'],'font.size':10,'text.color':INK,'axes.labelcolor':MUTED,'axes.edgecolor':'#cad5df','xtick.color':MUTED,'ytick.color':MUTED,'axes.spines.top':False,'axes.spines.right':False,'svg.fonttype':'none','savefig.facecolor':'white','axes.titlesize':12,'axes.titleweight':'medium'})
 trace=pd.read_csv(DATA/'neural-response-trace.csv');scores=pd.read_csv(DATA/'neural-unit-scores.csv')
 t=trace.time_s.to_numpy();obs=trace.real_mean.to_numpy();pred=trace.predicted.to_numpy();v=scores.dynamic_corr_cv_mean.to_numpy();res=obs-pred
 assert len(t)==459 and len(v)==46 and np.all(np.isfinite(np.r_[t,obs,pred,v]))
@@ -35,10 +35,10 @@ def response(mobile=False):
  gs=fig.add_gridspec(3,1,height_ratios=[1.25,.8,1.15]) if mobile else fig.add_gridspec(2,2,height_ratios=[1.5,1],width_ratios=[1.9,1])
  ax=fig.add_subplot(gs[0] if mobile else gs[0,:]);err=fig.add_subplot(gs[1] if mobile else gs[1,0]);cal=fig.add_subplot(gs[2] if mobile else gs[1,1])
  for a in [ax,err,cal]:clean(a)
- ax.plot(t,obs,color=INK,lw=1.2,label='Observed trial mean',alpha=.8);ax.plot(t,pred,color=BLUE,lw=1.15,label='Exported model prediction',alpha=.85)
- ax.set_xlim(97,120);ax.set_ylim(-.08,2.4);ax.set_ylabel('Response (export scale)');ax.set_xticks([97,100,105,110,115,120]);ax.set_title('A   Response over time',loc='left',pad=14);ax.legend(frameon=False,ncol=1 if mobile else 2,loc='upper right',fontsize=9);ax.set_xlabel('Time (s)')
- err.fill_between(t,res,0,color=TEAL,alpha=.16);err.plot(t,res,color=TEAL,lw=.9);err.axhline(0,color=MUTED,lw=.7);err.set_xlim(97,120);err.set_ylim(-.3,.3);err.set_xlabel('Time (s)');err.set_ylabel('Observed − predicted');err.set_title('B   Prediction residual',loc='left',pad=12)
- cal.scatter(obs,pred,s=14,alpha=.45,c=BLUE,edgecolors='none');cal.plot([-.05,2.2],[-.05,2.2],ls=(0,(4,4)),lw=1,color=MUTED);cal.set_xlim(-.08,2.25);cal.set_ylim(-.08,2.25);cal.set_xlabel('Observed response');cal.set_ylabel('Predicted response');cal.set_title('C   Observed vs predicted',loc='left',pad=12)
+ ax.plot(t,obs,color=INK,lw=2.7,label='Observed · thick solid',alpha=.9,zorder=2);ax.plot(t,pred,color='#D55E00',lw=1.6,ls=(0,(5,3)),label='Predicted · orange dashed',alpha=1,zorder=3)
+ ax.set_xlim(97,120);ax.set_ylim(-.08,2.4);ax.set_ylabel('Response (export scale)');ax.set_xticks([97,100,105,110,115,120]);ax.set_title('A   Response over time',loc='left',pad=14);ax.legend(frameon=False,ncol=1 if mobile else 2,loc='upper right',fontsize=9,handlelength=3.4);ax.set_xlabel('Time (s)')
+ err.fill_between(t,res,0,color=TEAL,alpha=.16);err.plot(t,res,color=TEAL,lw=1.3);err.axhline(0,color=MUTED,lw=.7);err.set_xlim(97,120);err.set_ylim(-.3,.3);err.set_xlabel('Time (s)');err.set_ylabel('Observed − predicted');err.set_title('B   Prediction residual',loc='left',pad=12)
+ cal.scatter(obs,pred,s=18,alpha=.6,c='#D55E00',edgecolors='none');cal.plot([-.05,2.2],[-.05,2.2],ls=(0,(4,4)),lw=1,color=MUTED);cal.set_xlim(-.08,2.25);cal.set_ylim(-.08,2.25);cal.set_xlabel('Observed response');cal.set_ylabel('Predicted response');cal.set_title('C   Observed vs predicted',loc='left',pad=12)
  fig.text(.08,.975,'Neural response diagnostics',fontsize=18 if mobile else 21,weight='medium',va='top')
  fig.text(.08,.97-.50/fig.get_figheight(),f'Cluster 4 · 459 bins · 50 ms sampling',fontsize=10,color=MUTED)
  fig.text(.08,.97-.80/fig.get_figheight(),f'Segment r = {r:.3f}     RMSE = {rmse:.3f}     MAE = {mae:.3f}',fontsize=10,color=BLUE)
@@ -67,7 +67,7 @@ def hero(mobile=False):
  left=fig.add_subplot(gs[0]);right=fig.add_subplot(gs[1]);left.axis('off')
  # This is the existing cluster-4 STA panel, not an invented receptive field.
  left.imshow(Image.open(OUT/'cluster4-sta-receptive-field.png'));left.set_title('Stimulus sensitivity',loc='left',fontsize=12,pad=5)
- sel=(t>=99)&(t<=107);right.set_facecolor('#f5f8fb');clean(right);right.plot(t[sel],obs[sel],color=INK,lw=1.5,label='Observed');right.plot(t[sel],pred[sel],color=BLUE,lw=1.4,label='Predicted');right.set_xlim(99,107);right.set_ylim(-.08,2.25);right.set_xlabel('Time (s)');right.set_ylabel('Response');right.legend(frameon=False,loc='upper left',fontsize=9,ncol=2);right.set_title('Response prediction',loc='left',pad=18,fontsize=12)
+ sel=(t>=99)&(t<=107);right.set_facecolor('#f5f8fb');clean(right);right.plot(t[sel],obs[sel],color=INK,lw=2.7,label='Observed · solid');right.plot(t[sel],pred[sel],color='#D55E00',lw=1.6,ls=(0,(5,3)),label='Predicted · dashed');right.set_xlim(99,107);right.set_ylim(-.08,2.25);right.set_xlabel('Time (s)');right.set_ylabel('Response');right.legend(frameon=False,loc='upper left',fontsize=9,ncol=1 if mobile else 2,handlelength=3);right.set_title('Response prediction',loc='left',pad=18,fontsize=12)
  fig.text(.065,.97,'Mapping sound to neural responses',fontsize=17 if mobile else 24,weight='medium',va='top');fig.text(.065,.97-.50/fig.get_figheight(),'Mouse auditory cortex · receptive fields and model predictions',fontsize=9 if mobile else 11,color=MUTED)
  fig.subplots_adjust(left=.07,right=.96,top=.97-1.15/fig.get_figheight(),bottom=.1,wspace=.28,hspace=.55)
  save(fig,'neural-study-opening'+('-mobile' if mobile else ''))
