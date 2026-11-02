@@ -1,0 +1,241 @@
+[
+  {
+    "id": "nirf",
+    "cat": "Imaging & AI",
+    "year": "2026 — 2027",
+    "context": "MEng thesis · ongoing",
+    "title": "Stereo NIRF reconstruction of subsurface vessels",
+    "desc": "From learned correspondence to light-transport simulation: reconstructing vessel geometry and diagnosing depth bias in stereo fluorescence images.",
+    "tools": [
+      "Python",
+      "Stereo vision",
+      "Siamese CNN",
+      "Mitsuba 3"
+    ],
+    "image": "nirf-01_stereo_render.png",
+    "alt": "Simulated stereo fluorescence pair of a subsurface vessel rendered in Mitsuba 3.",
+    "role": "Independent thesis researcher, supervised by Dr Stuart Bowyer.",
+    "result": "0.365 mm",
+    "label": "Mean depth RMSE · 248 finite test pairs",
+    "summary": "A stereo NIRF reconstruction study that separates correspondence performance from the apparent-depth bias introduced by scattering in physically based simulations.",
+    "sections": [
+      [
+        "Rendering changes the depth-recovery problem",
+        "The supplied like-for-like vessel images differ despite sharing geometry: the original renderer blurs depth bands, while the Mitsuba simulation models light transport. Their normalised cross-vessel profiles show that a pipeline tuned to one image distribution is not automatically calibrated for the other."
+      ],
+      [
+        "The plateau is conditional on scattering",
+        "For the straight-tube cases shown, the original renderer tracks true depth, while physically rendered images produce shallower stereo depths. At reduced scattering 0.6 per millimetre, the curve levels near 1.2 mm; at 0.3 per millimetre it approaches roughly 2.4 mm. These are results for the displayed simulation settings, not a universal tissue-depth limit."
+      ],
+      [
+        "Deep-end diagnostics isolate an additional failure",
+        "The 45° and 90° overlays compare extracted centrelines with the true projected path in each camera. Drift in the dim deep-end region can change disparity and yield nonphysical depths. This extraction failure is distinct from the apparent-depth plateau and prevents treating every output point as evidence for optical bias alone."
+      ],
+      [
+        "What remains to be checked",
+        "The plotted diffusion estimates are consistent with the apparent-depth levels in these simulations, but the derivation still needs supervisor review. The images alone do not establish performance in tissue, a unique physical mechanism, or the validity of every correspondence. A physical phantom study and controlled numerical comparisons remain necessary."
+      ]
+    ],
+    "question": "How do correspondence and light scattering affect the vessel depth recovered from stereo fluorescence images?"
+  },
+  {
+    "id": "auditory",
+    "cat": "Imaging & AI",
+    "year": "2025 — 2026",
+    "context": "Collaborative research · project leader",
+    "title": "Dynamic receptive fields in the auditory cortex",
+    "desc": "Held-out prediction and dynamic receptive-field analysis across 46 mouse auditory-cortex units, with matched and native-resolution comparisons.",
+    "tools": [
+      "PyTorch",
+      "Conv1D",
+      "Neural modelling"
+    ],
+    "image": "neural.png",
+    "alt": "Research figure comparing held-out neural predictions and receptive-field models.",
+    "role": "Project leader and manager in an eight-person research team, supervised by Dr Andriy S. Kozlov.",
+    "result": "0.339",
+    "label": "Median held-out Pearson correlation",
+    "summary": "A comparison of four spike-prediction methods that examines both predictive accuracy and stimulus-dependent receptive fields.",
+    "sections": [
+      [
+        "Prediction depends on the comparison protocol",
+        "Across 46 mouse auditory-cortex units, the dynamic model achieved a median held-out Pearson correlation of 0.339, compared with 0.290 for MNE under matched 50 ms settings. This supports an advantage within that comparison. MNE at its native 15 ms resolution was not significantly different from the dynamic model (p = 0.12), so the result does not establish a model-class advantage independent of temporal resolution, loss function and evaluation choices."
+      ],
+      [
+        "A representative response is not a population result",
+        "The report identifies the example response comparison as held-out and displays STA, STC, MNE and dSTRF predictions against the trial-averaged response. Their reported correlations are 0.44, 0.49, 0.34 and 0.58. This example illustrates differences in the predicted response but does not establish a population-wide ranking on its own. The 46-unit summaries and the report’s matched/native-resolution comparisons are needed for that conclusion."
+      ],
+      [
+        "Static feature structure and local network sensitivity",
+        "The cluster-4 appendix separates three forms of representation: a linear STA field, STC feature directions and an MNE feature set. Its eigenvalue panels are explicitly labelled STC, with two significant features indicated by the source figure. The dynamic analysis instead differentiates the fitted Conv1D output with respect to the input spectrogram. Its dSTRF is a local, stimulus-conditioned sensitivity map, rather than another fixed feature basis or a direct measurement of cellular mechanism."
+      ],
+      [
+        "Limits on the interpretation",
+        "Temporal hold was reported in 43.5% of analysed units, alongside gain and shape changes in the fitted receptive fields. These observations describe the network-based representation used in the study. They do not identify a unique neuronal mechanism, and the archive does not provide every original null distribution or STA/STC per-unit prediction score needed to reconstruct all statistical comparisons. I led and managed the eight-person study under Dr Andriy S. Kozlov; the experimental figures and results are shared team work."
+      ]
+    ],
+    "question": "Does stimulus-dependent encoding improve held-out prediction beyond static models when temporal resolution and evaluation settings are controlled?"
+  },
+  {
+    "id": "internship",
+    "title": "Soft-composite energy harvesting",
+    "cat": "Materials & energy",
+    "context": "Zhejiang University / Research internship & publication",
+    "year": "2025 — 2026",
+    "tools": [
+      "Materials characterisation",
+      "COMSOL",
+      "Electromechanical testing"
+    ],
+    "image": "publication-figure-6.png",
+    "alt": "Published Figure 6: wearable sensing architecture, circuit and measured wireless responses.",
+    "desc": "Materials synthesis, structural characterisation and electromechanical testing during a summer placement, with a coauthored GaIn/PVDF publication.",
+    "summary": "Research placement and coauthored publication.",
+    "role": "Placement work under Professor Jikui Luo."
+  },
+  {
+    "id": "wearable",
+    "cat": "Biomedical systems",
+    "year": "2024 — 2025",
+    "context": "Team design project",
+    "title": "Wearable eye-controlled communication",
+    "desc": "Combining eye tracking, head-tilt commands and a wearable display for people with cerebral palsy.",
+    "tools": [
+      "PCB design",
+      "OpenCV",
+      "Raspberry Pi",
+      "IMU"
+    ],
+    "image": "wearable-glasses-cover.webp",
+    "alt": "Wearable glasses design with frame, Google Glass display and camera labelled.",
+    "role": "Electrical schematic and PCB design; contribution to the project poster and final report. Supervisor: Ian Radcliffe.",
+    "result": "Multimodal",
+    "label": "Gaze selection + head-tilt interaction",
+    "summary": "An integrated prototype linking camera-based gaze and head-motion input to a wearable selection interface and speech output.",
+    "sections": [
+      [
+        "Electronics within a shared prototype",
+        "My contribution was the electrical schematic and PCB for a wearable augmentative and alternative communication device, with additional work on the poster and final report. The team combined a Raspberry Pi Zero 2 W, camera-based eye tracking, an MPU-6050 IMU and a Google Glass interface. This documents my part in the hardware integration; the complete device, software and evaluation were shared work supervised by Ian Radcliffe."
+      ],
+      [
+        "From gaze to selection",
+        "The design provided a route from eye images to interface selection. The poster describes grayscale conversion, noise reduction, thresholding and pupil detection, followed by gaze mapping and transmission of coordinates to a radial menu. Visual feedback and text-to-speech complete the interaction. This explains how a selection can be made, but successful integration alone does not establish how reliably an intended user can communicate over an extended session."
+      ],
+      [
+        "Prototype evidence and its limits",
+        "The supplied team poster reports eye-tracking accuracy of 80% or greater and IMU-trigger accuracy of 95% or greater. These are the poster’s reported prototype results, not estimates of performance in the intended clinical population. The poster does not state the trial counts, full task definitions or participant population alongside these figures, which prevents an assessment of their precision and generalisability. Long-term communication performance remains unestablished."
+      ]
+    ],
+    "question": "What does the wearable prototype establish about the communication pathway and my electronics contribution?"
+  },
+  {
+    "id": "monitoring",
+    "cat": "Healthcare software",
+    "year": "2025",
+    "context": "Collaborative software project",
+    "title": "Remote patient monitoring & Digital Twin",
+    "desc": "Live physiological waveforms and a Java–JavaScript patient-state display within a team-built monitoring prototype.",
+    "tools": [
+      "Java Swing",
+      "REST",
+      "PostgreSQL"
+    ],
+    "image": "patient-live-monitoring.webp",
+    "alt": "Live Monitoring screen showing heart rate, oxygen saturation, respiration, blood pressure and waveforms.",
+    "role": "Implementation of the Live Monitoring page and Digital Twin module.",
+    "result": "Live signals",
+    "label": "ECG, respiration and patient-state visualisation",
+    "summary": "A desktop monitoring prototype that brings physiological signals and patient information into a clinician-facing interface.",
+    "sections": [
+      [
+        "Live updates required separate responsibilities",
+        "Separating data generation, state management and rendering made the Live Monitoring page easier to develop and debug. In my report, I describe how early versions coupled simulation logic to the UI and why I refactored that arrangement. This is an implementation observation rather than a measured performance comparison: no timing or defect-rate study was reported. The supported conclusion is that the separation clarified the module’s responsibilities during development."
+      ],
+      [
+        "The Java–JavaScript boundary",
+        "The Digital Twin module added a second rendering environment to the Java application. I embedded an HTML/JavaScript dashboard to display patient state, which required synchronising its data with the Swing monitoring page. This created a concrete risk of inconsistent views if updates crossed the boundary incorrectly. The work therefore centred on data flow and interface contracts; it did not validate a physiological prediction model."
+      ],
+      [
+        "What the completed system demonstrates",
+        "The team prototype connected a Java Swing client, REST services and PostgreSQL storage in a workflow covering patient onboarding, live ECG and respiration displays, alerts and record review. I implemented the Live Monitoring page, Digital Twin module and reusable UI components. The demonstration shows those interfaces operating with simulated signals. Hardware integration, clinical validation and quantified real-time performance were outside the evidence supplied for this project."
+      ]
+    ],
+    "question": "What did the monitoring and Digital Twin implementation achieve, and what was not validated?"
+  },
+  {
+    "id": "instrumentation",
+    "cat": "Biomedical systems",
+    "year": "2024 — 2026",
+    "context": "Pair project & individual laboratory work",
+    "title": "Analogue biomedical instrumentation",
+    "desc": "Electronic stethoscope and impedance respirometry: two analogue signal chains, examined through simulation and bench measurements.",
+    "tools": [
+      "Analogue circuits",
+      "SPICE",
+      "LM324",
+      "Stripboard"
+    ],
+    "image": "instrumentation-system-source.png",
+    "alt": "Person with electrodes and the impedance-respirometry signal-processing chain.",
+    "role": "Electronic stethoscope: pair project with Zihao Tan. Impedance respirometry: individual laboratory analysis and report.",
+    "result": "Two signal chains",
+    "label": "Acoustic sensing and impedance measurement",
+    "summary": "A microphone-based stethoscope and a carrier-based respiratory circuit, with separate evidence for their laboratory operation.",
+    "sections": [
+      [
+        "Two ways to recover a physiological signal",
+        "These laboratory projects used different front ends to make small physiological signals observable. The electronic stethoscope amplified and filtered a microphone signal; the impedance system recovered slow respiratory modulation from a 32 kHz carrier. Both were implemented as analogue circuits and examined through simulation or bench measurements. Their results establish operation under the reported laboratory conditions, rather than diagnostic performance."
+      ],
+      [
+        "Electronic stethoscope",
+        "In the pair project with Zihao Tan, two LM324 inverting stages had nominal gains of 100× and 37×, with filtering designed around a 20–500 Hz passband. The nominal product is 3,700×, but filter attenuation means that this is not the gain of the complete signal chain at every frequency. The report confirms the first stage’s approximately 100× gain and notes that noise prevented a precise second-stage measurement. The design and observations are consistent with the intended amplification, but do not justify presenting 3,700× as a precisely verified end-to-end gain."
+      ],
+      [
+        "Impedance respirometry",
+        "The respiratory circuit used 32 kHz excitation, differential readout, Schottky-diode envelope detection, RC filtering and amplification. A stripboard implementation recovered a waveform from a breathing simulator set to 30 breaths per minute. This supports successful signal recovery at that simulator setting. The provided result does not quantify rate-estimation error, performance across breathing rates or agreement with a reference measurement in people."
+      ],
+      [
+        "What the measurements leave open",
+        "The two builds show why component-level behaviour and complete-system performance need separate checks. Noise limited the stethoscope gain measurement, while the respiratory result was obtained from a simulator at one reported setting. Repeated gain-versus-frequency measurements and respiratory tests across known rates would be needed to quantify accuracy and repeatability. The current evidence supports functional laboratory demonstrations, with those measurement limits retained."
+      ]
+    ],
+    "question": "What do the two analogue builds establish about signal recovery, and how precisely was their performance measured?"
+  },
+  {
+    "id": "sspi",
+    "title": "Statistical signal processing & inference",
+    "cat": "Signals & inference",
+    "context": "Individual coursework / signal processing",
+    "year": "2025 — 2026",
+    "tools": [
+      "MATLAB",
+      "Spectral estimation",
+      "Adaptive filtering",
+      "AR models"
+    ],
+    "image": "sspi-dtmf-spectrogram.svg",
+    "alt": "Original DTMF spectrogram showing two frequency components during each generated tone and quiet gaps between tones.",
+    "desc": "Spectral estimation, stochastic modelling and adaptive filtering, examined through analytical derivations and numerical experiments.",
+    "summary": "An individual coursework study connecting random-signal estimation, autoregressive modelling, spectral analysis and Wiener/LMS filtering. Selected evidence covers time–frequency analysis of a generated DTMF sequence, the effect of LMS step size, and interpretation of R–R interval spectra.",
+    "role": "Individual analysis and coursework report, dated 20 March 2026.",
+    "question": "How do estimator settings and adaptive-filter parameters change the conclusions supported by finite signal records?",
+    "sections": [
+      [
+        "LMS settings change the finite-record result",
+        "Among six tested step sizes, μ = 0.010 gives the lowest final-filter MSE relative to the clean target (0.000357) and the lowest squared distance to the Wiener coefficients (0.016459). The smaller μ = 0.002 leaves substantially greater error over the available record. These runs support a convergence–misadjustment trade-off within the tested setup; they do not identify a universally optimal step size."
+      ],
+      [
+        "Spectral estimates depend on the analysis window",
+        "The R–R interval analysis compares standard periodograms with 50 s and 150 s segment averaging for three breathing conditions. The report identifies breathing-related peaks near, rather than exactly at, the imposed frequencies. Those peaks are consistent with respiratory modulation of heart rate. They do not establish a precise respiratory-rate estimator or clinical validity."
+      ],
+      [
+        "Analytical checks alongside computation",
+        "The wider study includes stationarity and ergodicity, autocorrelation and cross-correlation, Yule–Walker AR modelling, AIC/MDL order selection and Cramér–Rao bounds. These derivations provide reference assumptions against which finite-sample numerical estimates can be interpreted."
+      ],
+      [
+        "Scope and reproducibility",
+        "The displayed LMS values are transcribed from Table 7, not regenerated simulations. No seed-to-seed variability is given for that comparison, so the observed ranking cannot be described as robust across random realisations. The selected RRI panels retain their source axes; the report’s experiment is educational, not a clinical validation study."
+      ]
+    ]
+  }
+]
