@@ -1,0 +1,27 @@
+{
+  "trace": {
+    "n_bins": 459,
+    "unit_id": 32,
+    "bin_seconds": 0.05,
+    "start_seconds": 97.0,
+    "end_seconds": 119.9,
+    "pearson_r": 0.9851416726695781,
+    "mse": 0.0022112984546816365,
+    "rmse": 0.04702444528839906,
+    "mae": 0.03353773431112118,
+    "evaluation": "Recomputed on the displayed exported segment; its training/test split is unspecified."
+  },
+  "population": {
+    "n_units": 46,
+    "median": 0.3388814181089401,
+    "q1": 0.24744036048650736,
+    "q3": 0.493279293179512,
+    "min": 0.0377065613865852,
+    "max": 0.7706584930419922,
+    "column": "dynamic_corr_cv_mean"
+  },
+  "source_sha256": {
+    "neural-response-trace.csv": "783bb83c1e44ca85c775165349e05eac260b9798af2e39411d1d37f834a71510",
+    "neural-unit-scores.csv": "66accad1f85c2ae1d5185f527747e7044ef13af38a174002d338e8e6a7e59470"
+  }
+}

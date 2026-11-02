@@ -1,0 +1,14 @@
+/* Responsive numerical figures for the auditory-cortex project. */
+.study-auditory .neural-data-figure>a{display:block;height:auto;max-height:none;min-height:0;aspect-ratio:auto;overflow:hidden;background:#fff}
+.study-auditory .neural-data-figure picture{display:block;width:100%}
+.study-auditory .neural-data-figure img{display:block;width:100%;height:auto;min-width:0;max-width:100%;max-height:none;object-fit:contain}
+.study-auditory .neural-opening{background:#f5f8fb}
+.study-auditory .neural-opening figcaption{background:#fff;margin:0;padding-top:12px}
+.study-auditory .neural-opening figcaption:after{content:none}
+.neural-response-figure,.neural-population-figure{margin:18px 0 0}
+.neural-analysis-notes,.neural-report-archive{border-top:1px solid #dce4ec;margin-top:22px;padding:15px 0}
+.neural-analysis-notes summary,.neural-report-archive summary{cursor:pointer;font-size:13px;color:#255a8d;line-height:1.6}
+.neural-analysis-notes p{max-width:1000px;font-size:12px;line-height:1.85;margin:15px 0}
+.neural-analysis-notes .source-downloads,.neural-data-download{gap:22px;margin:20px 0;font-size:12px}
+.neural-report-archive .neural-original-report{margin:24px auto}
+@media(max-width:760px){.study-auditory .neural-data-figure>a{height:auto;overflow:hidden;aspect-ratio:auto}.study-auditory .neural-data-figure img{width:100%;height:auto;min-width:0;max-width:100%}.study-auditory .neural-opening figcaption:after{content:none}.neural-analysis-notes .source-downloads{flex-direction:column;gap:12px}.neural-analysis-notes p{font-size:12px}.neural-data-figure figcaption{font-size:11px!important}}
