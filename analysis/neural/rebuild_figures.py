@@ -61,17 +61,8 @@ def population(mobile=False):
  fig.text(.08,.98,'Prediction across the population',fontsize=18 if mobile else 21,weight='medium',va='top');fig.text(.08,.97-.50/fig.get_figheight(),f'46 units · median {med:.3f} · range {v.min():.3f}–{v.max():.3f}',fontsize=10,color=MUTED)
  fig.subplots_adjust(left=.13 if mobile else .08,right=.97,top=.97-1.15/fig.get_figheight(),bottom=.085 if mobile else .16,hspace=.6,wspace=.35)
  save(fig,'neural-population-recomputed'+('-mobile' if mobile else ''))
-def hero(mobile=False):
- fig=plt.figure(figsize=(6.3,7.6) if mobile else (12,5.4),facecolor='#f5f8fb')
- gs=fig.add_gridspec(2,1,height_ratios=[1,1]) if mobile else fig.add_gridspec(1,2,width_ratios=[.9,1.5])
- left=fig.add_subplot(gs[0]);right=fig.add_subplot(gs[1]);left.axis('off')
- # This is the existing cluster-4 STA panel, not an invented receptive field.
- left.imshow(Image.open(OUT/'cluster4-sta-receptive-field.png'));left.set_title('Stimulus sensitivity',loc='left',fontsize=12,pad=5)
- sel=(t>=99)&(t<=107);right.set_facecolor('#f5f8fb');clean(right);right.plot(t[sel],obs[sel],color=INK,lw=2.7,label='Observed · solid');right.plot(t[sel],pred[sel],color='#D55E00',lw=1.6,ls=(0,(5,3)),label='Predicted · dashed');right.set_xlim(99,107);right.set_ylim(-.08,2.25);right.set_xlabel('Time (s)');right.set_ylabel('Response');right.legend(frameon=False,loc='upper left',fontsize=9,ncol=1 if mobile else 2,handlelength=3);right.set_title('Response prediction',loc='left',pad=18,fontsize=12)
- fig.text(.065,.97,'Mapping sound to neural responses',fontsize=17 if mobile else 24,weight='medium',va='top');fig.text(.065,.97-.50/fig.get_figheight(),'Mouse auditory cortex · receptive fields and model predictions',fontsize=9 if mobile else 11,color=MUTED)
- fig.subplots_adjust(left=.07,right=.96,top=.97-1.15/fig.get_figheight(),bottom=.1,wspace=.28,hspace=.55)
- save(fig,'neural-study-opening'+('-mobile' if mobile else ''))
-for mobile in [False,True]:response(mobile);population(mobile);hero(mobile)
+# The recording opening is preserved from the supplied report figure.
+for mobile in [False,True]:response(mobile);population(mobile)
 print(json.dumps(metrics,indent=2))
 # Replot every STC eigenvalue directly from the preserved MATLAB export.
 from scipy.io import loadmat
