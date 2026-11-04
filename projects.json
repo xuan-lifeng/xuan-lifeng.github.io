@@ -17,8 +17,16 @@
     "role": "Independent thesis researcher, supervised by Dr Stuart Bowyer.",
     "result": "0.365 mm",
     "label": "Mean depth RMSE · 248 finite test pairs",
-    "summary": "A stereo NIRF reconstruction study that separates correspondence performance from the apparent-depth bias introduced by scattering in physically based simulations.",
+    "summary": "The study develops vessel reconstruction from stereo fluorescence images: first diagnosing a classical pipeline, then comparing learned and classical correspondence under shared geometric constraints, and finally examining apparent-depth bias in physically based simulations.",
     "sections": [
+      [
+        "Diagnosing the classical pipeline",
+        "Ground-truth substitutions rescued 98/106 high-coverage depth failures using correct pairing and 106/106 using exact disparity, identifying correspondence as the principal residual bottleneck in the earlier development cohort."
+      ],
+      [
+        "Learned appearance within fixed geometry",
+        "Learned H uses a CNN appearance cost inside a shared constrained sequence matcher. G49 and G97 are separate ZNCC comparators. In the frozen test comparison, mean depth RMSE decreased from 0.642 mm for G97 to 0.365 mm for Learned H across 248 finite paired cases, while successful reconstructions increased from 155/250 to 205/250."
+      ],
       [
         "Rendering changes the depth-recovery problem",
         "The like-for-like vessel images differ despite sharing geometry: the original renderer blurs depth bands, while the Mitsuba simulation models light transport. Their normalised cross-vessel profiles show that a pipeline tuned to one image distribution is not automatically calibrated for the other."
